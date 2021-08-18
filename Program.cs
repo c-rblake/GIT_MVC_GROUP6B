@@ -22,5 +22,11 @@ namespace GIT_MVC_GROUP6B
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+        // 2021-08-18 3:15
+        public static void Hello(string[] args)
+        {
+            Console.WriteLine("Hello");
+        }
     }
 }
