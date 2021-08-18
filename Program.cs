@@ -14,6 +14,7 @@ namespace GIT_MVC_GROUP6B
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
+
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -22,5 +23,10 @@ namespace GIT_MVC_GROUP6B
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+        public static void hello(string[] args)
+        {
+            Console.WriteLine("Välkommen till grupp 6");
+        }
     }
 }
