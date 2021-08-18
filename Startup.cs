@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using GIT_MVC_GROUP6B.Data;
 
 namespace GIT_MVC_GROUP6B
 {
@@ -24,6 +26,9 @@ namespace GIT_MVC_GROUP6B
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<GIT_MVC_GROUP6BContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("GIT_MVC_GROUP6BContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,7 +55,7 @@ namespace GIT_MVC_GROUP6B
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Thing1}/{action=Index}/{id?}");
             });
         }
     }
